@@ -1,0 +1,40 @@
+
+<div class="login-bg">
+  <div class="background" [style.backgroundImage]="'url(' + bgImage + ')'">
+    <ion-img [src]="logo" class="login-logo"></ion-img>
+  </div>
+</div>
+
+<ion-content>
+  <ion-row>
+    <ion-title>
+      Sign In
+    </ion-title>
+    <div>
+      <p>Enter your phone number and we will send an 'OTP' to continue.</p>
+    </div>
+
+    <form  #form="ngForm" >
+      <ion-row >
+        <ion-row >
+          <ion-label>Phone Number</ion-label>
+        </ion-row>
+        <ion-row >
+          <ion-input  name="name" type="number" class="login-input" placeholder="Enter here.." ngModel required></ion-input>
+        </ion-row>
+        <div>
+          <button size="large"  class="border-btn" type="submit" [disabled]="form.invalid" expand="block">Send OTP</button>
+        </div>
+      </ion-row>
+    </form>
+
+    <ion-row>
+      <h4>Would you like to:</h4>
+      <button size="large"  class="border-btn" type="submit" [disabled]="form.invalid" expand="block">Login with Facebook</button>
+      <h4 class="">Or</h4>
+      <button size="large"  class="bg-btn" type="submit" [disabled]="form.invalid" expand="block">Login with Google</button>
+    </ion-row>
+  </ion-row>
+
+
+</ion-content>
