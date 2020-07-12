@@ -29,3 +29,19 @@ npm-debug.log*
 /platforms
 /plugins
 /www
+<<<<<<< HEAD
+=======
+
+angular.json
+browserslist
+capacitor.config.json
+e2e/
+ionic.config.json
+karma.conf.js
+package-lock.json
+package.json
+tsconfig.app.json
+tsconfig.json
+tsconfig.spec.json
+tslint.json
+>>>>>>> 32dfe2b... Create gitignore
