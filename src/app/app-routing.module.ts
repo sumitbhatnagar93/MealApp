@@ -9,6 +9,10 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./auth/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'verification',
+    loadChildren: () => import('./auth/verification/verification.module').then( m => m.VerificationPageModule)
   }
 ];
 @NgModule({

@@ -14,27 +14,38 @@
       <p>Enter your phone number and we will send an 'OTP' to continue.</p>
     </div>
 
-    <form  #form="ngForm" >
+    <form  #form="ngForm" (ngSubmit)="onSubmit(form.value)">
       <ion-row >
-        <ion-row >
+        <ion-col >
           <ion-label>Phone Number</ion-label>
-        </ion-row>
-        <ion-row >
-          <ion-input  name="name" type="number" class="login-input" placeholder="Enter here.." ngModel required></ion-input>
-        </ion-row>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col >
+          <ion-input  name="phone" type="number" class="login-input" placeholder="Enter here.." ngModel required></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
         <div>
           <button size="large"  class="border-btn" type="submit" [disabled]="form.invalid" expand="block">Send OTP</button>
         </div>
       </ion-row>
     </form>
-
+  </ion-row>
+  <ion-row>
     <ion-row>
       <h4>Would you like to:</h4>
-      <button size="large"  class="border-btn" type="submit" [disabled]="form.invalid" expand="block">Login with Facebook</button>
+    </ion-row>
+    <ion-row >
+      <button size="large" [routerLink]="['/verification']" class="border-btn" type="submit"  >Login with Facebook</button>
+    </ion-row>
+    <ion-row>
       <h4 class="">Or</h4>
-      <button size="large"  class="bg-btn" type="submit" [disabled]="form.invalid" expand="block">Login with Google</button>
+    </ion-row>
+    <ion-row>
+      <button size="large"  class="bg-btn" type="submit"  expand="block">Login with Google</button>
     </ion-row>
   </ion-row>
-
-
+  <ion-alert-controller></ion-alert-controller>
+  <ion-checkbox checked="true" (click)="presentAlertCheckbox()"></ion-checkbox>
 </ion-content>

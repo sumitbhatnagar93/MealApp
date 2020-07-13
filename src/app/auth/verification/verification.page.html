@@ -1,0 +1,29 @@
+
+<div class="login-bg">
+  <div class="background" [style.backgroundImage]="'url(' + bgImage + ')'">
+    <ion-buttons slot="start">
+      <ion-back-button>Back</ion-back-button>
+    </ion-buttons>
+   <h2>Enter Verification Code</h2>
+    <p>We have sent an OTP to 7987238223</p>
+  </div>
+</div>
+
+<ion-content>
+  <ion-row>
+    <form  #form="ngForm" (ngSubmit)="onSubmit(this.form)">
+      <ion-row >
+        <ion-row >
+          <ion-input  name="otp" type="number" class="login-input" placeholder="OTP" ngModel required></ion-input>
+        </ion-row>
+        <div>
+          <button size="large"  class="border-btn" type="submit" >Submit</button>
+        </div>
+      </ion-row>
+    </form>
+
+    <ion-row>
+      <button size="large"  class="bg-btn" (click)="resendOTP()" >Resend</button>
+    </ion-row>
+  </ion-row>
+</ion-content>
