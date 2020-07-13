@@ -13,6 +13,14 @@ const routes: Routes = [
   {
     path: 'verification',
     loadChildren: () => import('./auth/verification/verification.module').then( m => m.VerificationPageModule)
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'account',
+    loadChildren: () => import('./profile/account/account.module').then( m => m.AccountPageModule)
   }
 ];
 @NgModule({
