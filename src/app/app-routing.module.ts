@@ -21,7 +21,39 @@ const routes: Routes = [
   {
     path: 'account',
     loadChildren: () => import('./profile/account/account.module').then( m => m.AccountPageModule)
-  }
+  },
+  {
+    path: 'search',
+    loadChildren: () => import('./components/search/search.module').then( m => m.SearchPageModule)
+  },
+  {
+    path: 'restaurant-list',
+    loadChildren: () => import('./restaurant-list/restaurant-list.module').then( m => m.RestaurantListPageModule)
+  },
+  {
+    path: 'tiffin-services',
+    loadChildren: () => import('./tiffin-services/tiffin-services.module').then( m => m.TiffinServicesPageModule)
+  },
+  {
+    path: 'forget-password',
+    loadChildren: () => import('./components/forget-password/forget-password.module').then( m => m.ForgetPasswordPageModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./auth/register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'update-user',
+    loadChildren: () => import('./components/update-user/update-user.module').then( m => m.UpdateUserPageModule)
+  },
+  {
+    path: 'google-map',
+    loadChildren: () => import('./components/google-map/google-map.module').then( m => m.GoogleMapPageModule)
+  },
+  {
+    path: 'vendor-single/:id',
+    loadChildren: () => import('./vendor-single/vendor-single.module').then( m => m.VendorSinglePageModule)
+  },
 ];
 @NgModule({
   imports: [

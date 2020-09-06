@@ -1,0 +1,25 @@
+.onetime-location-alert-pop .card p {
+  font-size: 20px;
+  color: #481313;
+}
+
+.onetime-location-alert-pop .gps-mark {
+  position: absolute;
+  left: 19px;
+  font-weight: bold;
+  bottom: 15px;
+  font-size: 20px;
+}
+
+.onetime-location-alert-pop ul li.list-group-item:first-child {
+  border-bottom: 1px solid #431717;
+}
+
+.onetime-location-alert-pop .card div.map {
+  padding-bottom: 10px;
+}
+
+.onetime-location-alert-pop .card ion-img {
+  width: 35px;
+  margin: 0 auto;
+}

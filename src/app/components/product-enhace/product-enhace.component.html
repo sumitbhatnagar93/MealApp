@@ -1,0 +1,15 @@
+<ion-content class="container">
+    <h1>Addons</h1>
+    <div class="container" *ngFor="let sec of extra">
+        <h4>{{sec.title}}</h4>
+        <br>
+        <ul *ngFor="let option of sec.addon" class="list-group">
+            <li class="list-group-item">
+                <span> {{option.name}}</span>
+                <span class="float-right"> Rs. {{option.price}}<input type="checkbox"
+                                                                      (click)="cartItem(option.name,option.price)"/></span>
+            </li>
+        </ul>
+    </div>
+    <button class="btn btn-block btn-info" (click)="addToCart()">Add ({{product.subtotal}})</button>
+</ion-content>

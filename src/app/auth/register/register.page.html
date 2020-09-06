@@ -1,0 +1,70 @@
+<ion-content class="">
+    <div class="">
+        <div class="mt-3">
+            <div class="content-title mt-3">
+                <ion-icon name="arrow-back-outline" class="d-inline-block mb-0 h3 ml-1" [routerLink]="['/tabs/profile']"></ion-icon>
+                <h2 class="h2 d-inline-block ml-2">Create Account</h2>
+            </div>
+
+            <form [formGroup]="registerFrom" (ngSubmit)="onSubmit(registerFrom.value)" class="login-form">
+                <div class="">
+                    <ion-item class="w-100" lines="none"
+                              [class.invalid]="isPhoneInvalid || (f.phone.invalid && f.phone.touched)">
+                        <ion-label position="floating">10 digits mobile number</ion-label>
+                        <ion-input type="text" formControlName="phone" class="theme-input"
+                                   [pattern]="mobNumberPattern"></ion-input>
+                    </ion-item>
+                </div>
+                <div class="form-group ">
+                    <ion-item class="w-100" lines="none" [class.invalid]="isEmailInvalid">
+                        <ion-label position="floating">Email Address</ion-label>
+                        <ion-input type="text" formControlName="email" class="theme-input"></ion-input>
+                    </ion-item>
+                </div>
+                <div class="form-group ">
+                    <ion-item class="w-100" lines="none">
+                        <ion-label position="floating">Password</ion-label>
+                        <ion-input type="password" formControlName="password" class="theme-input"></ion-input>
+                    </ion-item>
+                </div>
+                <div class="form-group ">
+                    <ion-item class="w-100" lines="none" [class.invalid]="f.cPassword.invalid && f.cPassword.touched">
+                        <ion-label position="floating">Confirm Password</ion-label>
+                        <ion-input type="password" formControlName="cPassword" class="theme-input"></ion-input>
+                    </ion-item>
+                </div>
+                <div class="form-group text-center">
+                    <button size="large" class="btn theme-btn" type="submit" [class.disabled]="registerFrom.invalid"
+                            [disabled]="registerFrom.invalid" expand="block">Register
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div>
+            <div class="col-12 text-center">
+                <h4>Would you like to:</h4>
+                <button size="large" (click)="login()" class="btn theme-btn-border m-2 btn-icon"
+                        type="submit">
+                    <ion-icon name="logo-facebook" style="color:blue;"></ion-icon>
+                    Login with Facebook
+                </button>
+                <button size="large" (click)="googleSignIn()" class="theme-btn-border m-2 btn-icon" type="submit"
+                        expand="block">
+                    <ion-icon name="logo-google" style="color: red;"></ion-icon>
+                    Login with Google
+                </button>
+            </div>
+            <div class="col-12 text-center">
+            </div>
+        </div>
+        <div class="text-center mt-1">
+            <span>Already have an account? <a [routerLink]="['/login']">Login</a></span>
+        </div>
+    </div>
+
+    <div class="login-bg">
+        <div class="background">
+            <ion-img [src]="logo" class="login-logo"></ion-img>
+        </div>
+    </div>
+</ion-content>

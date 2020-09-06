@@ -1,0 +1,26 @@
+<ion-content>
+    <div class="google-map">
+        <div class="animated bounce centerMarker " *ngIf="isMapLoaded">
+            <img src="./assets/images/marker.svg" alt="cookrey-marker">
+            <div class="gps_ring"></div>
+        </div>
+        <div id="map_canvas"></div>
+        <span class="on-current-location"><ion-icon name="locate-outline"
+                                                    (click)="showCurrentCoords()"></ion-icon></span>
+    </div>
+    <div class="bottom-fixed">
+        <div class="cf-add">
+            <p class="cf-title m-0">Confirm Address</p>
+            <div class="add-section">
+                <p class="short-label">Your Location</p>
+                <p class="selective-add m-0">{{address}}<span
+                        class="float-right text-uppercase"
+                        (click)="presentManuallSearchModal()">change</span>
+                </p>
+            </div>
+            <div class="text-center p-2 mt-2">
+                <button class="theme-btn" (click)="confirmLocationEvent()">Confirm Location</button>
+            </div>
+        </div>
+    </div>
+</ion-content>

@@ -1,0 +1,126 @@
+.user-info-area {
+  background: #9c9e9f; /* Old browsers */
+  background: -moz-linear-gradient(left, #9c9e9f 0%, #f6f6f6 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #9c9e9f), color-stop(100%, #f6f6f6)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, #9c9e9f 0%, #f6f6f6 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, #9c9e9f 0%, #f6f6f6 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left, #9c9e9f 0%, #f6f6f6 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #9c9e9f 0%, #f8f8f838 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#9c9e9f', endColorstr='#f6f6f6', GradientType=1); /* IE6-9 */
+}
+
+.user-info-area .meta-info {
+  position: relative;
+}
+
+.user-info-area .meta-info .position-absolute {
+  position: absolute !important;
+  right: 0;
+  top: 5px;
+  font-size: 22px;
+  color: #481313;
+}
+
+ion-list fa-icon {
+  color: #481313;
+}
+
+ion-content.bg-opacity {
+  opacity: 0.5;
+}
+
+.banner-area {
+  background-image: url(src/assets/images/profile-banner.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+}
+
+.banner-area::after {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  height: 180px;
+  background-color: rgba(0, 0, 0, .77);
+  opacity: .9;
+  content: "";
+}
+
+.profile-area {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 107px;
+  z-index: 9999;
+}
+
+.profile-area .card-title {
+  position: absolute;
+  left: 130px;
+  top: 13px;
+  color: aliceblue;
+  font-weight: 500;
+  font-size: 22px;
+}
+
+.position-absolute-icon {
+  position: absolute !important;
+  right: 17px;
+  top: 20px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.thumbnail-area {
+  border: 1px solid;
+  border-radius: 50%;
+  height: 101px;
+  margin-left: 16px;
+  width: 101px;
+  background: floralwhite;
+}
+
+.thumbnail-area .profile-img-thumbnail {
+  width: 100px;
+  height: 80px;
+  margin: auto;
+}
+
+.thumbnail-area .profile-img-thumbnail img {
+  border-radius: 50%;
+  width: 100px;
+  height: 102px;
+}
+
+.meta-info-area {
+  position: absolute;
+  left: 83px;
+  top: 44px;
+  font-size: 13px;
+  color: #fff;
+}
+
+.meta-info-area li:last-child {
+  position: relative;
+}
+
+//.meta-info-area li:last-child::before {
+//  content: "";
+//  position: absolute;
+//  height: 18px;
+//  border: 1px solid;
+//  left: 0;
+//  top: 6px;
+//}
+
+.meta-info-area li {
+  display: inline-block;
+  padding: 4px;
+}
+
+.account-setting-area {
+  margin-top: 25px;
+}

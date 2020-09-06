@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { AccountPageRoutingModule } from './account-routing.module';
 
 import { AccountPage } from './account.page';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    AccountPageRoutingModule
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        AccountPageRoutingModule,
+        FontAwesomeModule
+    ],
   declarations: [AccountPage]
 })
 export class AccountPageModule {}

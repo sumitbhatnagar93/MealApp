@@ -1,0 +1,22 @@
+<ion-content class="container">
+    <div class="banner-area bg-info" #animateElement></div>
+    <div class="pop-header mt-2">
+        <ion-title class="text-uppercase text-center font-weight-bolder">Set Your Delivery Location</ion-title>
+    </div>
+    <ion-searchbar [(ngModel)]="autocomplete.input" (ionInput)="UpdateSearchResults()"
+                   placeholder="Search for a place..." (ionClear)="ClearAutocomplete()" class="cookrey-search-box"
+                   (click)="animate()">
+    </ion-searchbar>
+    <ion-list [hidden]="autocompleteItems.length == 0">
+        <ion-item *ngFor="let item of autocompleteItems" tappable (click)="SelectSearchResult(item)">
+            {{ item.description }}
+        </ion-item>
+    </ion-list>
+    <div class="gps-box" *ngIf="autocompleteItems.length == 0">
+        <p class="text-center bg-info text-light p-2 m-3" (click)="turnONGPS()">
+            <ion-icon name="location"></ion-icon>
+            <strong>Use current location</strong>
+        </p>
+    </div>
+</ion-content>
+

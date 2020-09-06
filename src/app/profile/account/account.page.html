@@ -1,9 +1,60 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>account</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content>
+        </ion-refresher-content>
+    </ion-refresher>
+    <div class="banner-area" *ngIf="loggedIn"></div>
+    <div class="profile-area" *ngIf="loggedIn">
+        <div class="thumbnail-area">
+            <div class="profile-img-thumbnail" (click)="selectImage()">
+                <img [src]="picture" alt="" *ngIf="picture">
+            </div>
+        </div>
+        <div class="card-title text-center" *ngIf="currentUser.name">{{currentUser.name}}</div>
+        <ul class="meta-info-area" *ngIf="currentUser">
+            <li *ngIf="currentUser.email">
+                <span class="ml-1">{{currentUser.email}}</span></li>
+            <li *ngIf="currentUser.phone">
+                <span class="ml-1">{{currentUser.phone}}</span></li>
+        </ul>
+        <ion-icon name="create-outline" class="position-absolute-icon" (click)="updateInfoModal()"></ion-icon>
+    </div>
+    <div class="container-fluid text-center mt-4" *ngIf="!loggedIn">
+        <button class="btn theme-btn-full" (click)="presentLoginModal()">Login Now</button>
+    </div>
+    <ion-list *ngIf="loggedIn" [ngClass]="{'account-setting-area':loggedIn}">
+        <ion-item>
+            <fa-icon icon="home"></fa-icon>
+            &nbsp;Manage Address
+        </ion-item>
+        <ion-item>
+            <fa-icon icon="shopping-basket"></fa-icon>
+            &nbsp;Your Orders
+        </ion-item>
+    </ion-list>
+    <ion-list class="mt-2">
+        <ion-list-header>
+            <h2 class="h5">Other</h2>
+        </ion-list-header>
+        <ion-item>
+            <fa-icon icon="cog"></fa-icon>
+            &nbsp;
+            <ion-label>Setting</ion-label>
+        </ion-item>
+        <ion-item>
+            <fa-icon icon="bell"></fa-icon>
+            &nbsp;
+            <ion-label>Notification</ion-label>
+        </ion-item>
+        <ion-item>
+            <fa-icon icon="info-circle"></fa-icon>
+            &nbsp;
+            <ion-label>Help</ion-label>
+        </ion-item>
+        <ion-item *ngIf="loggedIn">
+            <fa-icon icon="sign-out-alt"></fa-icon>
+            &nbsp;
+            <ion-label (click)="logout()">Logout</ion-label>
+        </ion-item>
+    </ion-list>
 </ion-content>

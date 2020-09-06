@@ -1,0 +1,101 @@
+<ion-content>
+    <div *ngIf="isLoaded">
+        <ion-skeleton-text animated style="width:30%;height: 20px;"></ion-skeleton-text>
+        <ion-skeleton-text animated style="width:50%;height: 20px;"></ion-skeleton-text>
+        <ion-skeleton-text animated style="width:10%;height: 20px;"></ion-skeleton-text>
+    </div>
+    <div *ngIf="!isLoaded">
+        <ion-header>
+            <div class="header-single text-center"
+                 [ngStyle]="{'background-image': 'url(' + filePathLive+''+vendorInfo.provider_id+'/'+vendorInfo.business_image + ')'}"
+                 *ngIf="vendorInfo">
+                <div class="header-content">
+                    <ion-icon name="arrow-back-outline" class="back-arrow" routerLink="/"></ion-icon>
+                    <div class="container mt-20">
+                        <h2>{{vendorInfo.business_name}}</h2>
+                        <span>Indian food, south food</span>
+                        <div class="meta-info">
+                            <span>{{vendorInfo.business_city}}</span> | <span>1.2km</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ion-header>
+        <div class="container">
+            <section class="rating-sec">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="single-rating">4.5</div>
+                            <div class="counter">+100 ratings</div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="single-rating">50 mins</div>
+                            <div class="counter">Delivery Time</div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="single-rating">Rs. 500</div>
+                            <div class="counter">for two</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="grid-list">
+                <div class="float-right"></div>
+                <div class="grid-list-label text-uppercase">Recommended</div>
+                <div class="grid-content">
+                    <div class="row">
+                        <div class="col-6" *ngFor="let product of products; index as i">
+                            <div class="card">
+                                <div class="thumbnail">
+                                    <ion-img
+                                            src="{{filePathLive+''+product.provider_id+'/food-images/'+product.image}}"></ion-img>
+                                </div>
+                                <div class="card-title mb-0 ml-1 font-weight-bold">{{product.title}}</div>
+                                <div class="price-sec p-1">
+                                    <span>Rs. {{product.price}}</span>
+                                    <button *ngIf="!product.qty && !product.extra" class="float-right"
+                                            (click)="addToCart(product)">
+                                        <ion-icon name="add-outline"></ion-icon>
+                                    </button>
+                                    <button *ngIf="!product.qty && product.extra" class="float-right"
+                                            (click)="presentToatWithOptions(product)">
+                                        <ion-icon name="add-outline"></ion-icon>
+                                    </button>
+                                    <div class="float-right" *ngIf="product.qty">
+                                        <ion-icon name="add-circle-outline"
+                                                  (click)="addToCart(product)"></ion-icon>
+                                        <span>{{product.qty}}</span>
+                                        <ion-icon name="remove-circle-outline" (click)="removeItem(product)"></ion-icon>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="general-list">
+                <div class="general-list-label text-uppercase font-weight-bold">Beverage Combo</div>
+                <hr>
+                <div class="general-content">
+                    <div class="row mb-3" *ngFor="let product of products">
+                        <div class="left-content ml-3 position-relative">
+                            <ion-icon name="stop-circle-outline" class="mt-1 position-absolute text-success"></ion-icon>
+                            <div class="info ml-4">
+                                <p class="m-0 font-weight-bold">{{product.title}}</p>
+                                <span>Rs.{{product.price}}</span>
+                            </div>
+                        </div>
+                        <div class="right-content">
+                            <button class="btn btn-success">ADD</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</ion-content>

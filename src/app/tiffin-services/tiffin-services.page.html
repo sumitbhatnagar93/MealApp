@@ -1,0 +1,54 @@
+<div class="ck-list-info-data">
+    <div *ngIf="!isLoaded" class="ml-4 mt-4">
+        <div class="mb-4">
+            <ion-skeleton-text animated style="width:90%;height: 100px;"></ion-skeleton-text>
+            <ion-skeleton-text animated style="width:50%;height: 20px;"></ion-skeleton-text>
+            <ion-skeleton-text animated style="width:10%;height: 20px;"></ion-skeleton-text>
+        </div>
+        <div class="mb-4">
+            <ion-skeleton-text animated style="width:90%;height: 100px;"></ion-skeleton-text>
+            <ion-skeleton-text animated style="width:50%;height: 20px;"></ion-skeleton-text>
+            <ion-skeleton-text animated style="width:10%;height: 20px;"></ion-skeleton-text>
+        </div>
+        <div class="mb-4">
+            <ion-skeleton-text animated style="width:90%;height: 100px;"></ion-skeleton-text>
+            <ion-skeleton-text animated style="width:50%;height: 20px;"></ion-skeleton-text>
+            <ion-skeleton-text animated style="width:10%;height: 20px;"></ion-skeleton-text>
+        </div>
+        <div class="mb-4">
+            <ion-skeleton-text animated style="width:90%;height: 100px;"></ion-skeleton-text>
+            <ion-skeleton-text animated style="width:50%;height: 20px;"></ion-skeleton-text>
+            <ion-skeleton-text animated style="width:10%;height: 20px;"></ion-skeleton-text>
+        </div>
+    </div>
+    <div *ngIf="isLoaded">
+        <ion-list>
+            <div class="ck-list-info">
+                <h4 class="text-uppercase">{{cookreyVendors.length}} food services your nearby area</h4>
+                <p>Find you favorite service..</p>
+            </div>
+            <ion-item lines="none" *ngFor="let vendor of cookreyVendors"
+                      routerLink="/vendor-single/{{vendor.provider_id}}">
+                <ion-card class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{{filePathLive+''+vendor.provider_id+'/'+vendor.business_image}}"
+                         alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{vendor.business_name}}</h5>
+                        <div class="star-review">
+                            <ion-icon name="star" class="ion-star"></ion-icon>
+                            <ion-icon name="star" class="ion-star"></ion-icon>
+                            <ion-icon name="star" class="ion-star"></ion-icon>
+                            <ion-icon name="star-half-outline" class="ion-star"></ion-icon>
+                            <ion-icon name="star-outline"></ion-icon>
+                            <span><strong> 4.2</strong></span>
+                        </div>
+                        <div class="card-product-info">
+                            <p class="card-text">Burger, Pizza, Ice-cream, Beverage.</p>
+                            <span class="card-text"><strong>Rs. 300 per person</strong></span>
+                        </div>
+                    </div>
+                </ion-card>
+            </ion-item>
+        </ion-list>
+    </div>
+</div>

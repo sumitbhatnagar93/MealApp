@@ -1,40 +1,67 @@
-.login-logo{
-  width: 140px;
-  height: 100px;
+.login-logo {
+  height: 180px;
   margin: 0 auto;
-  margin-top: 74px;
+  width: 230px;
 }
-.background{
+
+.background {
+  background-color: #481313;
   height: 100%;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   overflow: hidden;
+  position: relative;
 }
-.login-input{
-  border-bottom: 1px solid #2dd36f;
-}
-.border-btn{
-  border: 1px solid #2dd36f;
-  background-color: #fff;
-  color: #2dd36f;
-  padding: 17px;
-  width: 192px;
-  font-weight: 900;
-  text-align: center;
-  border-radius: 100px;
-}
-.bg-btn{
-  background-color: #2dd36f;
+
+.background ion-icon {
   color: #fff;
-  padding: 17px;
-  width: 192px;
-  font-weight: 900;
+  font-size: 35px;
+  top: 35px;
+  left: 13px;
+  position: absolute;
+}
+
+.login-area {
+  width: 90%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  position: absolute;
+  top: 150px;
+  background: #ffffff;
+  border-radius: 34px;
+  left: 13px;
+  right: 13px;
   text-align: center;
-  border-radius: 100px;
 }
-.login-bg{
+
+.content-main {
+  bottom: 20px;
+}
+
+.content-main ion-row div.content-title {
+  margin: 10px;
+}
+
+.content-main ion-row div.content-title p {
+  font-weight: 900;
+  line-height: 26.3px;
+}
+
+.content-main ion-row div.content-title h2 {
+  font-weight: bold;
+}
+
+.login-form {
   width: 100%;
-  height: 220px;
+  position: relative;
 }
+
+button.disabled {
+  opacity: 0.5;
+}
+
+

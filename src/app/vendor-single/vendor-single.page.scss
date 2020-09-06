@@ -1,0 +1,83 @@
+.header-single {
+  height: 150px;
+  background-size: cover;
+}
+
+.header-single::after {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, .77);
+  opacity: .9;
+  content: "";
+}
+
+.header-single .header-content {
+  position: relative;
+  color: #ffffff;
+  z-index: 999;
+  padding: 2.75rem 0 60px;
+}
+
+.header-single .header-content .meta-info {
+  font-size: 11px;
+}
+
+.header-content .back-arrow {
+  position: absolute;
+  top: 11px;
+  font-size: 27px;
+  left: 11px;
+}
+
+.container section.rating-sec {
+  width: 314px;
+  padding: 20px;
+  margin: 0 auto;
+  font-size: 12px;
+}
+
+.container section.rating-sec .col-4 {
+  text-align: center;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.container section.rating-sec .col-4 .card {
+  padding: 6px;
+}
+
+.grid-list .grid-list-label {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 3px;
+}
+
+.grid-list .card {
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 17px !important;
+}
+
+.grid-list button {
+  background: yellowgreen;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 50%;
+  text-align: center;
+  padding: 0;
+  width: 25px;
+  height: 25px;
+}
+
+.general-list .general-content {
+  position: relative;
+}
+
+.general-list .general-content .right-content {
+  position: absolute;
+  right: 0;
+}

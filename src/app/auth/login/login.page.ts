@@ -1,98 +1,107 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AuthService} from '../auth.service';
 import {Router} from '@angular/router';
-import {AlertController} from '@ionic/angular';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {ModalController} from '@ionic/angular';
+import {ForgetPasswordPage} from '../../components/forget-password/forget-password.page';
+import {AlertService} from '../../alert-services/alert.service';
+import {LoaderService} from '../../services/loader.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+    selector: 'app-login',
+    templateUrl: './login.page.html',
+    styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  bgImage =  './assets/images/bgblack.png';
-  logo =  './assets/images/logo.png';
-  constructor(private http: AuthService, private route: Router, private alerCtrl: AlertController) { }
+    bgImage = './assets/images/bgblack.png';
+    logo = './assets/images/shade-logo.png';
+    loginFrom: FormGroup;
+    mobNumberPattern = '^((\\+91-?)|0)?[0-9]{10}$';
+    isPasswordInvalid: boolean;
+    isPhoneInvalid: boolean;
+    isProcess: boolean;
+    res: any;
+    msg = '';
 
-  ngOnInit() {
-    console.log(localStorage.getItem('loginData'));
-  }
-  onSubmit(data){
-    console.log(data);
-    this.http.sendOTP(data).subscribe((res) => {
-    this.http.updateLoginData(res);
-    console.log(res);
-    this.route.navigate(['verification']);
-    }, (error) => {
-      console.log(error);
-    });
-  }
+    constructor(
+        private http: AuthService,
+        private route: Router,
+        private formBuilder: FormBuilder,
+        public modelCtr: ModalController,
+        public toastService: AlertService,
+    ) {
+        this.isPasswordInvalid = false;
+        this.isPhoneInvalid = false;
+        this.isProcess = false;
+        this.loginFrom = this.formBuilder.group({
+            phone: [null, [Validators.required, Validators.maxLength(10), Validators.minLength(10)]],
+            password: ['', Validators.required],
+        });
+    }
 
-  async presentAlertCheckbox() {
-    const alert = await this.alerCtrl.create({
-      cssClass: 'my-custom-class',
-      header: 'Checkbox',
-      inputs: [
-        {
-          name: 'checkbox1',
-          type: 'checkbox',
-          label: 'Checkbox 1',
-          value: 'value1',
-          checked: true
-        },
+    ngOnInit() {
+    }
 
-        {
-          name: 'checkbox2',
-          type: 'checkbox',
-          label: 'Checkbox 2',
-          value: 'value2'
-        },
+    public async dismiss() {
+        const modal = await this.modelCtr.getTop();
+        modal.dismiss();
+    }
 
-        {
-          name: 'checkbox3',
-          type: 'checkbox',
-          label: 'Checkbox 3',
-          value: 'value3'
-        },
+    get f() {
+        return this.loginFrom.controls;
+    }
 
-        {
-          name: 'checkbox4',
-          type: 'checkbox',
-          label: 'Checkbox 4',
-          value: 'value4'
-        },
 
-        {
-          name: 'checkbox5',
-          type: 'checkbox',
-          label: 'Checkbox 5',
-          value: 'value5'
-        },
+    onSubmit(value) {
+        this.isProcess = true;
+        this.http.login(this.f.phone.value, this.f.password.value).subscribe((res: (any)) => {
+            this.isPasswordInvalid = false;
+            this.isPhoneInvalid = false;
+            this.isProcess = false;
+            console.log(res);
+            this.res = JSON.stringify(res);
+            this.loginFrom.reset();
+            this.dismiss();
+            this.toastService.presentAlertToast('Logged in successfully!');
+            //this.route.navigate(['/tabs/home']);
+        }, (error) => {
+            this.isProcess = false;
+            this.res = JSON.stringify(error);
+            if (error.status === 401) {
+                if (error.error.errorType === 'phone') {
+                    this.isPhoneInvalid = true;
+                    this.isPasswordInvalid = true;
+                    this.msg = 'Invalid phone number!';
+                } else {
+                    this.msg = 'Invalid phone number or password!';
+                    this.isPhoneInvalid = false;
+                    this.isPasswordInvalid = true;
+                }
+                console.log(error.status);
+            }
+            this.toastService.presentAlertToast(this.msg);
+        });
+    }
 
-        {
-          name: 'checkbox6',
-          type: 'checkbox',
-          label: 'Checkbox 6 Checkbox 6 Checkbox 6 Checkbox 6 Checkbox 6 Checkbox 6 Checkbox 6 Checkbox 6 Checkbox 6 Checkbox 6',
-          value: 'value6'
-        }
-      ],
-      buttons: [
-        {
-          text: 'Cancel',
-          role: 'cancel',
-          cssClass: 'secondary',
-          handler: () => {
-            console.log('Confirm Cancel');
-          }
-        }, {
-          text: 'Ok',
-          handler: () => {
-            console.log('Confirm Ok');
-          }
-        }
-      ]
-    });
+    async forgetPasswordModal() {
+        this.modelCtr.dismiss();
+        const modal = await this.modelCtr.create({
+            component: ForgetPasswordPage,
+            cssClass: 'half-modal',
+        });
+        return await modal.present();
+    }
 
-    await alert.present();
-  }
+    login() {
+        this.http.loginWithFacebook();
+    }
+
+    googleSignIn() {
+        this.http.googleSignIn();
+    }
+
+    logout() {
+        this.http.fblogout();
+    }
 
 }

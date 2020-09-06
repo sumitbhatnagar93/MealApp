@@ -1,0 +1,18 @@
+<ion-content class="container onetime-location-alert-pop">
+    <div class="card">
+        <p class="text-center mt-2 "><strong>Device location is off!</strong></p>
+        <div class="map">
+            <ion-img src="./assets/images/location-icon.png"></ion-img>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item" (click)="turnONGPS()">
+                <ion-icon name="locate-outline" class="gps-mark"></ion-icon>
+                <span>Turn on Device Location</span>
+            </li>
+            <li class="list-group-item" (click)="showSearchModal()">
+                <ion-icon name="search-circle-outline"  class="gps-mark"></ion-icon>
+                <span>Select Location Manually</span>
+            </li>
+        </ul>
+    </div>
+</ion-content>

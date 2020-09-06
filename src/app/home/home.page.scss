@@ -1,0 +1,113 @@
+.app-header {
+  padding: 0 10px 10px 0px;
+  width: 100%;
+  height: auto;
+  position: relative;
+  color: #481313;
+}
+
+
+.app-header h2 {
+  font-size: 18px;
+}
+
+.app-header span {
+  font-size: 15px;
+  margin-left: 22px;
+}
+
+.app-header h2, .app-header span {
+  margin-top: 5px;
+}
+
+.address-wrap ion-icon {
+  position: absolute;
+  font-size: 29px;
+  left: 3px;
+  top: 9px;
+}
+
+.address-wrap ion-img {
+  width: 25px;
+  position: absolute;
+  right: 0;
+  top: 9px;
+}
+
+.address-wrap {
+  padding: 15px;
+  border-bottom: 1px dotted #ccc;
+  margin-bottom: 9px;
+}
+
+.search-wrap, .address-wrap {
+  position: relative;
+}
+
+.app-header-search {
+  color: #ccc;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background: transparent;
+  width: 100%;
+  padding: 8px;
+  text-align: left;
+  padding-left: 46px;
+}
+
+.search-wrap ion-icon {
+  position: absolute;
+  color: #968d8d;
+  top: 11px;
+  left: 15px;
+  z-index: 999;
+}
+
+.business-goal-logo {
+  padding: 6px;
+  text-align: center;
+}
+
+.business-goal-logo ion-img {
+  width: 61px;
+  margin: 0 auto;
+  height: 46px;
+}
+
+.business-goal-logo ion-img img {
+  width: 100%;
+}
+
+.business-goal-logo ion-label {
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.offer-btn {
+  left: 12px;
+  bottom: 18px;
+}
+
+.network-img {
+  width: 101px;
+  margin: 0 auto;
+  margin-top: 113px;
+  opacity: 0.5;
+}
+
+
+.scroll-content {
+  top: -56px !important;
+  padding-top: 60px !important;
+}
+
+.hide-header {
+  transition: top 0.25s ease;
+  top: -56px;
+}
+
+.show-header {
+  transition: top 0.25s ease;
+  top: 0px;
+}
+

@@ -1,7 +1,93 @@
-<ion-header>
+<ion-content class="refresh-wrap">
+            <span *ngIf="!selectedAddress">
+        <ion-skeleton-text animated
+                           style="width:50%;height: 20px;margin-left: 10px;margin-top: 5px;"></ion-skeleton-text>
+        </span>
+    <div class="app-header" id="chevron">
+        <div class="address-wrap" (click)="presentMapModal()" *ngIf="selectedAddress">
+            <ion-icon name="location-outline"></ion-icon>
+            <strong><span>{{selectedAddress}}</span></strong>
+            <ion-img src="./assets/images/discount.svg"></ion-img>
+        </div>
+        <div class="search-wrap">
+            <ion-icon name="search"></ion-icon>
+            <button class="app-header-search" (click)="presentSearchModal()">Search here..</button>
+        </div>
+    </div>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+</ion-content>
 
-</ion-header>
+<ion-content scroll-y="true" *ngIf="isOnline">
+    <div *ngIf="isLoaded">
+        <div class="row ml-1 mr-1">
+            <div class="col-6">
+                <ion-skeleton-text animated style="width:80%;height: 100px;" class="centered"></ion-skeleton-text>
+            </div>
+            <div class="col-6">
+                <ion-skeleton-text animated style="width:80%;height: 100px;" class="centered"></ion-skeleton-text>
+            </div>
+            <div class="col-6 mt-3">
+                <ion-skeleton-text animated style="width:80%;height: 100px;" class="centered"></ion-skeleton-text>
+            </div>
+            <div class="col-6 mt-3">
+                <ion-skeleton-text animated style="width:80%;height: 100px;" class="centered"></ion-skeleton-text>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <ion-skeleton-text animated style="width:80%;height: 100px;" class="centered"></ion-skeleton-text>
+        </div>
+    </div>
+    <div *ngIf="!isLoaded">
+        <ion-row>
+            <ion-col>
+                <ion-card class="business-goal-logo">
+                    <ion-img src="./assets/images/tiffin-2x.png"></ion-img>
+                    <ion-label>Tiffin Box Ordert</ion-label>
+                </ion-card>
+            </ion-col>
+            <ion-col>
+                <ion-card class="business-goal-logo">
+                    <ion-img src="./assets/images/burger-2x.png"></ion-img>
+                    <ion-label>Fast Food Order</ion-label>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-card class="business-goal-logo">
+                    <ion-img src="./assets/images/plate-2x.png"></ion-img>
+                    <ion-label>Restaurant Booking</ion-label>
+                </ion-card>
+            </ion-col>
+            <ion-col>
+                <ion-card class="business-goal-logo">
+                    <ion-img src="./assets/images/glass-2x.png"></ion-img>
+                    <ion-label>Bar & Pup Booking</ion-label>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <div class="m-2 position-relative">
+            <ion-img src="./assets/images/offer-banner.png"></ion-img>
+            <a routerLink="/" class="btn btn-info position-absolute offer-btn">Order Now</a>
+        </div>
+    </div>
+    <app-tiffin-services></app-tiffin-services>
+    <div class="ck-app-footer-">
+        <div class="logo-wrap">
+            <ion-img [src]="shadeLogo" class="login-logo"></ion-img>
+        </div>
+        <div class="ck-creator">
+        </div>
+    </div>
+</ion-content>
 
-<ion-content>
+<ion-content *ngIf="!isOnline">
+    <div class="container text-center">
+        <ion-img class="network-img" src="./assets/images/disconnected-icon.jpg"></ion-img>
+        <h5>Check your internet connectivity!</h5>
+        <button class="theme-btn">Retry</button>
+    </div>
 
 </ion-content>

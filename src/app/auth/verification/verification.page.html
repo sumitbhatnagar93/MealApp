@@ -1,29 +1,48 @@
-
-<div class="login-bg">
-  <div class="background" [style.backgroundImage]="'url(' + bgImage + ')'">
-    <ion-buttons slot="start">
-      <ion-back-button>Back</ion-back-button>
-    </ion-buttons>
-   <h2>Enter Verification Code</h2>
-    <p>We have sent an OTP to 7987238223</p>
-  </div>
-</div>
-
-<ion-content>
-  <ion-row>
-    <form  #form="ngForm" (ngSubmit)="onSubmit(this.form)">
-      <ion-row >
-        <ion-row >
-          <ion-input  name="otp" type="number" class="login-input" placeholder="OTP" ngModel required></ion-input>
-        </ion-row>
-        <div>
-          <button size="large"  class="border-btn" type="submit" >Submit</button>
+<ion-content class="content-main">
+    <div class="login-bg">
+        <div class="background">
+            <ion-icon name="arrow-back-outline" [routerLink]="['/login']"></ion-icon>
+            <div class="header-text">
+                <h2>Enter Verification Code</h2>
+                <p>We have sent an OTP on 708898232</p>
+            </div>
         </div>
-      </ion-row>
-    </form>
+    </div>
+    <div>
 
-    <ion-row>
-      <button size="large"  class="bg-btn" (click)="resendOTP()" >Resend</button>
-    </ion-row>
-  </ion-row>
+        <form #form="ngForm" (ngSubmit)="onSubmit(form.value)" class="login-form">
+            <ion-row class="text-center" >
+                <ion-col>
+                    <ion-input class="otp-input" name="otp1" type="number" #otp1 required maxLength="1" (keyup)="otpController($event,otp2,'')">
+                    </ion-input>
+                    <ion-input class="otp-input" name="otp2" type="number" #otp2 required maxLength="1" (keyup)="otpController($event,otp3,otp1)">
+                    </ion-input>
+                    <ion-input class="otp-input" name="otp3" type="number" #otp3 required maxLength="1" (keyup)="otpController($event,otp4,otp2)">
+                    </ion-input>
+                    <ion-input class="otp-input" name="otp4" type="number" #otp4  required maxLength="1" (keyup)="otpController($event,'',otp3)">
+                    </ion-input>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <div class="main-btn">
+                    <button size="large" class="theme-btn mt-3" type="submit" [disabled]="form.invalid" expand="block">
+                        Submit
+                    </button>
+                </div>
+            </ion-row>
+        </form>
+    </div>
+    <div>
+        <div class="main-btn">
+            <button size="large" class="theme-btn-border mt-3" type="submit" expand="block" (click)="resendOTP()">Resend</button>
+        </div>
+    </div>
+
+    <div>
+        <div class="main-btn mt-3">
+        <p>Your OTP will be expire within : <strong>1:20s</strong></p>
+        </div>
+    </div>
 </ion-content>
+
+

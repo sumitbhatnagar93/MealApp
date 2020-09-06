@@ -1,0 +1,73 @@
+.login-logo {
+  height: 180px;
+  margin: 0 auto;
+  width: 230px;
+}
+
+.background {
+  background: #9c9e9f; /* Old browsers */
+  background: -moz-linear-gradient(left,  #9c9e9f 0%, #f6f6f6 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,#9c9e9f), color-stop(100%,#f6f6f6)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left,  #9c9e9f 0%,#f6f6f6 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left,  #9c9e9f 0%,#f6f6f6 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left,  #9c9e9f 0%,#f6f6f6 100%); /* IE10+ */
+  background: linear-gradient(to top,  #9c9e9f 0%,#f8f8f838 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9c9e9f', endColorstr='#f6f6f6',GradientType=1 ); /* IE6-9 */
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+}
+
+.background ion-icon {
+  color: #fff;
+  font-size: 35px;
+  top: 35px;
+  left: 13px;
+  position: absolute;
+}
+
+.login-area {
+  width: 90%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  position: absolute;
+  top: 150px;
+  background: #ffffff;
+  border-radius: 34px;
+  left: 13px;
+  right: 13px;
+  text-align: center;
+}
+
+.content-main {
+  bottom: 20px;
+}
+
+.content-main ion-row div.content-title {
+  margin: 10px;
+}
+
+.content-main ion-row div.content-title p {
+  font-weight: 900;
+  line-height: 26.3px;
+}
+
+.content-main ion-row div.content-title h2 {
+  font-weight: bold;
+}
+
+.login-form {
+  width: 100%;
+  position: relative;
+}
+
+
+button.disabled {
+  opacity: 0.5;
+}
+
